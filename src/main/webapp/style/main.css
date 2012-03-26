@@ -1,1 +1,203 @@
+/** HTML overrides **/
+body {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}
+
+ul, li, p { margin: 0; padding: 0; }
+
+ul { list-style: none; overflow: hidden; padding: 10px 0; width: 100%; }
+
+li { float: left; }
+
+
 video { display: none; }
+
+
+/** Layout **/
+
+.border {
+    border:2px solid #3E3E3E;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.titleSection {
+    left: 0;
+    right: 10px;
+    height: 2.4em;
+    padding: .5em;
+}
+
+.title {
+    color: #3E3E3E;
+    font-family: Verdana, Arial, sans-serif;
+}
+
+.controls {
+}
+
+.videoSection {
+    position: absolute;
+    top: 3.4em;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    border-top: 2px solid #3E3E3E;
+    background-color: #000000;
+}
+
+/*Style the videos */
+.videoSection canvas:nth-child(1) {
+      z-index: 1;
+}
+.videoSection canvas:nth-child(2) {
+      z-index: 10;
+}
+.videoSection canvas:nth-child(3) {
+      z-index: 20;
+}
+
+/** Util Styles **/
+
+.hidden {
+	display: none;
+}
+
+.visible {
+	visibility: visible;
+}
+
+.invisible {
+	visibility: hidden;
+}
+
+.inline {
+	display: inline;
+}
+
+.floatLeft {
+	float: left;
+}
+
+.floatRight {
+	float: right;
+}
+
+.paddingTopSmall {
+	padding-top: 5px;
+}
+
+.marginTopSmall {
+	margin-top: 5px;
+}
+
+.marginBottomSmall {
+	margin-bottom: 5px;
+}
+
+.marginRightSmall {
+	margin-right: 5px;
+}
+
+.marginRightLarge {
+	margin-right: 25px;
+}
+
+.marginLeftSmall {
+	margin-left: 5px;
+}
+
+.marginLeftLarge {
+	margin-left: 15px;
+}
+
+.paddingSmall {
+	padding: 5px;
+}
+
+.marginSmall {
+	margin: 5px;
+}
+
+.clearer {
+	clear: both;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.normal {
+	text-decoration: none;
+	font-weight: normal;
+}
+
+.underline {
+	text-decoration: underline;
+}
+
+.noBorder {
+	border: none !important;
+}
+
+.relative {
+	position: relative;
+}
+
+.static {
+	position: static;
+}
+
+.absolute {
+	position: absolute;
+}
+
+.overflowHidden {
+	overflow: hidden;
+}
+
+.noOutline {
+	outline: none;
+}
+
+.full {
+	width: 100%;
+	height: 100%;
+}
+
+.handCursor {
+	cursor: pointer;
+	cursor: hand;
+}
+
+.defaultCursor {
+	cursor: default;
+}
+
+.center {
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.closer {
+	z-index: 10;
+}
+
+.bigText {
+   	font-size: large;
+   }

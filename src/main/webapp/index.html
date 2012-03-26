@@ -1,20 +1,35 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <link rel="stylesheet" type="text/css" href="style/main.css" />
+      <title>HTML5 Player</title>
   </head>
   <body>
+    <div class="border">
+
+        <div class="titleSection">
+            <h1 class="title floatLeft marginRightLarge">Demo Video</h1>
+            <div class="controls floatRight marginRightLarge">
+                <ul>
+                    <li><input type="button" value="Play" /></li>
+                    <li><input type="range" min="0" max="100" value="0" step="1" /></li>
+                    <li><span id="range">0</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="videoSection">
+            <canvas id="primary"></canvas>
+            <canvas id="secondary"></canvas>
+        </div>
+
+    </div>
+
     <video controls>
         <source src="video/video.webm" type='video/webm; codecs="vp8, vorbis"' />
     </video>
-    <br/>
-    <canvas id="primary"></canvas>
-    <br/>
-    <canvas id="secondary"></canvas>
 
     <script type='text/javascript'
             src='lib/steal/steal.js?../scripts/html5player.js'></script>
-
   </body>
 </html>
 

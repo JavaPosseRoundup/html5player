@@ -15,13 +15,35 @@ steal(  '../lib/jquery',
     //    config = jQuery.parseJSON(configText);
 
 
-        config = { "primary": { "x": 0, "y": 0, "w": 1200, "h": 720 }, "secondary": { "x": 1200, "y": 480, "w": 320, "h": 240 } };
+        config = {
+                "alpha": { "r": 90, "g": 90, "b": 110, "threshold": 70},
+                "primary": { "x": 0, "y": 0, "w": 1200, "h": 720 },
+                "secondary": { "x": 1200, "y": 480, "w": 320, "h": 240 }
+            };
         $video = $('video');
         $primary = $('#primary');
         $secondary = $('#secondary');
         video = $video[0];
         primary = $primary[0];
         secondary = $secondary[0];
+
+         removeFrameBackground = function (ctx, targetR, targetG, targetB, threshold, width, height) {
+                var imgData = ctx.getImageData(0, 0, width, height);
+                var imgDataArray = imgData.data;
+                for (var i = 0; i < imgDataArray.length; i += 4) {
+                    var red = imgDataArray[i];
+                    var green = imgDataArray[i + 1];
+                    var blue = imgDataArray[i + 2];
+
+                    var dist = Math.sqrt((red - targetR) * (red - targetR) + (green - targetG) * (green - targetG) + (blue - targetB) * (blue - targetB));
+                    if (dist < threshold) {
+                        imgDataArray[i + 3] = 0;
+                    }
+
+                }
+                ctx.putImageData(imgData, 0, 0);
+            };
+
 
         initializeCanvases = function () {
             var renderFrame;
@@ -42,6 +64,11 @@ steal(  '../lib/jquery',
 
                 secondaryCtx.drawImage(video, config.secondary.x, config.secondary.y, config.secondary.w,
                         config.secondary.h, 0, 0, config.secondary.w, config.secondary.h);
+                  if(config.alpha) {
+                     removeFrameBackground(secondaryCtx, config.alpha.r, config.alpha.g, config.alpha.b,
+                             config.alpha.threshold, config.secondary.w, config.secondary.h);
+                  }
+
             };
             setInterval(renderFrame, 30);
 

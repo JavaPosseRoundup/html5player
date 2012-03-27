@@ -10,9 +10,9 @@
             <h1 class="title floatLeft marginRightLarge">Demo Video</h1>
             <div class="controls floatRight marginRightLarge">
                 <ul>
-                    <li><input type="button" value="Play" /></li>
-                    <li><input type="range" min="0" max="100" value="0" step="1" /></li>
-                    <li><span id="range">0</span></li>
+                    <li><input type="button" value="||" id="play"/></li>
+                    <li><input type="range" id="slider" min="0" max="100" value="0" step="1" onchange="setTime(this.value)"/></li>
+                    <li><span id="range">0 %</span></li>
                 </ul>
             </div>
         </div>
@@ -25,7 +25,6 @@
                 <canvas id="secondary" class="videoSnippet"></canvas>
             </div>
         </div>
-
     </div>
 
     <video controls>

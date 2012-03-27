@@ -2,7 +2,8 @@ steal(  '../lib/jquery',
         '../lib/jquery-ui-1.8.18/ui/jquery-ui.js',
         '../lib/modernizr.js' )
 	.css( '../style/main' )		        // Loads 'main.css'
-	.then(function(){						// Adds a function to be called back once all prior files have been loaded and run 
+	.then(function(){						// Adds a function to be called back once all prior files have been loaded and run
+
         var $video, $buffer, $primary, $secondary, video, buffer, primary, secondary, bufferCtx, primaryCtx, secondaryCtx,
 			initializeCanvases, config;
 
@@ -55,6 +56,9 @@ steal(  '../lib/jquery',
             secondary.width = config.secondary.w;
             secondary.height = config.secondary.h;
             $('.videoSection').css( 'min-width' , config.primary.w + config.secondary.w + 10 + 50  )
+
+            $( "div.canvasWrapper" ).draggable();
+            $( "canvas.videoSnippet" ).resizable({ aspectRatio:true });
 
             renderFrame = function() {
 

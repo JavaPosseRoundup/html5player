@@ -89,22 +89,25 @@ steal(  '../lib/jquery',
 
             $('canvas').dblclick(function() {
                 config.largeFace = !config.largeFace;
+                primaryCtx.clearRect(0, 0, primary.width, primary.height);
             });
 
             renderFrame = function() {
-                var primarySource, secondarySource;
+                var primarySource, secondarySource, width;
 
                 if (config.largeFace) {
                     primarySource = config.secondary;
                     secondarySource = config.primary;
+                    width = config.primary.h * (config.secondary.w / config.secondary.h);
                 } else {
                     primarySource = config.primary;
                     secondarySource = config.secondary;
+                    width = primarySource.w;
                 }
 
                 // Render a slice into the primary canvas.
                 primaryCtx.drawImage(video, primarySource.x, primarySource.y, primarySource.w, primarySource.h,
-                        0, 0, config.primary.w, config.primary.h);
+                        0, 0, width, config.primary.h);
 
                 secondaryCtx.drawImage(video, secondarySource.x, secondarySource.y, secondarySource.w, secondarySource.h,
                         0, 0, config.secondary.w, config.secondary.h);

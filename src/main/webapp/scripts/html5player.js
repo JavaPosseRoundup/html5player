@@ -18,7 +18,7 @@ steal(  '../lib/jquery',
 
 
         config = {
-                "alpha": { "r": 90, "g": 90, "b": 110, "threshold": 70},
+                "alpha": { "r": 135, "g": 203, "b": 252, "threshold": 100},
                 "primary": { "x": 0, "y": 0, "w": 1200, "h": 720 },
                 "secondary": { "x": 1200, "y": 480, "w": 320, "h": 240 }
             };

@@ -1,7 +1,8 @@
 steal(  '../lib/jquery',
         '../lib/jquery-ui-1.8.18/ui/jquery-ui.js',
         '../lib/modernizr.js' )
-	.css( '../style/main' )		        // Loads 'main.css'
+	.css( '../style/main',
+	      '../lib/jquery-ui-1.8.18/themes/base/jquery.ui.all' )		        // Loads 'main.css'
 	.then(function(){						// Adds a function to be called back once all prior files have been loaded and run
 
         var $video, $buffer, $primary, $secondary, video, buffer, primary, secondary, bufferCtx, primaryCtx, secondaryCtx,

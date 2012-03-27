@@ -39,6 +39,7 @@ video { display: none; }
 
 .title {
     color: #3E3E3E;
+    background-color: #E7E7DE;
     font-family: Verdana, Arial, sans-serif;
 }
 
@@ -65,6 +66,10 @@ video { display: none; }
 }
 .videoSection canvas:nth-child(3) {
       z-index: 20;
+}
+
+.videoSnippet {
+    margin-right: 10px;
 }
 
 /** Util Styles **/

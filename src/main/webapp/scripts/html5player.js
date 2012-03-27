@@ -32,6 +32,7 @@ steal(  '../lib/jquery',
             primary.width = config.primary.w;
             secondary.width = config.secondary.w;
             secondary.height = config.secondary.h;
+            $('.videoSection').css( 'min-width' , config.primary.w + config.secondary.w + 10 + 50  )
 
             renderFrame = function() {
 

@@ -45,6 +45,32 @@ steal(  '../lib/jquery',
                 ctx.putImageData(imgData, 0, 0);
             };
 
+            $video.bind('timeupdate', function () {
+                showValue(Math.round(100 * (video.currentTime / video.duration)));
+            });
+
+            function showValue(newValue) {
+                $('#range')[0].innerHTML = newValue + " %";
+                $('#slider')[0].value = newValue;
+            }
+
+            function setTime(newValue) {
+                $('#range')[0].innerHTML = newValue;
+                video.currentTime = Math.round(video.duration * newValue / 100);
+                showValue(newValue);
+            }
+
+            function playControl() {
+                if (video.paused == false) {
+                    video.pause();
+                    $('#play')[0].value = '>';
+                } else {
+                    video.play();
+                    $('#play')[0].value = '||';
+                }
+            }
+            $('#play').click(playControl);
+
 
         initializeCanvases = function () {
             var renderFrame;

@@ -86,14 +86,27 @@ steal(  '../lib/jquery',
             $( "div.canvasWrapper" ).draggable();
             $( "canvas.videoSnippet" ).resizable({ aspectRatio:true });
 
+            $('canvas').dblclick(function() {
+                config.largeFace = !config.largeFace;
+            });
+
             renderFrame = function() {
+                var primarySource, secondarySource;
+
+                if (config.largeFace) {
+                    primarySource = config.secondary;
+                    secondarySource = config.primary;
+                } else {
+                    primarySource = config.primary;
+                    secondarySource = config.secondary;
+                }
 
                 // Render a slice into the primary canvas.
-                primaryCtx.drawImage(video, config.primary.x, config.primary.y, config.primary.w, config.primary.h, 0, 0,
-                        config.primary.w, config.primary.h);
+                primaryCtx.drawImage(video, primarySource.x, primarySource.y, primarySource.w, primarySource.h,
+                        0, 0, config.primary.w, config.primary.h);
 
-                secondaryCtx.drawImage(video, config.secondary.x, config.secondary.y, config.secondary.w,
-                        config.secondary.h, 0, 0, config.secondary.w, config.secondary.h);
+                secondaryCtx.drawImage(video, secondarySource.x, secondarySource.y, secondarySource.w, secondarySource.h,
+                        0, 0, config.secondary.w, config.secondary.h);
                   if(config.alpha) {
                      removeFrameBackground(secondaryCtx, config.alpha.r, config.alpha.g, config.alpha.b,
                              config.alpha.threshold, config.secondary.w, config.secondary.h);

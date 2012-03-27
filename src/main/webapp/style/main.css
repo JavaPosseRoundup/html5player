@@ -35,11 +35,11 @@ video { display: none; }
     right: 10px;
     height: 2.4em;
     padding: .5em;
+    background-color: #E7E7DE;
 }
 
 .title {
     color: #3E3E3E;
-    background-color: #E7E7DE;
     font-family: Verdana, Arial, sans-serif;
 }
 
